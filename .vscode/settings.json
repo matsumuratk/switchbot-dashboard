@@ -6,6 +6,6 @@
   "python.linting.mypyCategorySeverity.error": "Information",
   "isort.check": true,
   "editor.codeActionsOnSave": {
-    "source.organizeImports": true
+    "source.organizeImports": "explicit"
   }
 }

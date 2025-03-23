@@ -19,7 +19,7 @@ load_dotenv(".env")
 # InfluxDB
 INFLUXDB_TOKEN = os.environ["INFLUXDB_TOKEN"]
 bucket = "switchbot"
-client = InfluxDBClient(url="http://influxdb:8086", token=INFLUXDB_TOKEN, org="org")
+client = InfluxDBClient(url="http://localhost:8086", token=INFLUXDB_TOKEN, org="org")
 write_api = client.write_api(write_options=SYNCHRONOUS)
 query_api = client.query_api()
 
@@ -71,8 +71,10 @@ def task():
 
 
 if __name__ == "__main__":
-    schedule.every(5).minutes.do(task)
+#    schedule.every(5).minutes.do(task)
+#
+#    while True:
+#        schedule.run_pending()
+#        sleep(1)
 
-    while True:
-        schedule.run_pending()
-        sleep(1)
+    task()

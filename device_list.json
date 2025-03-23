@@ -1,0 +1,30 @@
+[
+  {
+    "deviceId": "CA5F46463F21",
+    "deviceName": "11_thermohygrometer",
+    "deviceType": "WoIOSensor",
+    "enableCloudService": true,
+    "hubDeviceId": "D879924895A8"
+  },
+  {
+    "deviceId": "D40E84865116",
+    "deviceName": "12_thermohygrometer",
+    "deviceType": "WoIOSensor",
+    "enableCloudService": true,
+    "hubDeviceId": "D879924895A8"
+  },
+  {
+    "deviceId": "D7086467562C",
+    "deviceName": "寝室照明",
+    "deviceType": "Bot",
+    "enableCloudService": true,
+    "hubDeviceId": "D879924895A8"
+  },
+  {
+    "deviceId": "D879924895A8",
+    "deviceName": "ハブミニ A8",
+    "deviceType": "Hub Mini",
+    "enableCloudService": true,
+    "hubDeviceId": "000000000000"
+  }
+]
