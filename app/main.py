@@ -51,8 +51,14 @@ def task():
     """定期実行するタスク"""
     bot = Switchbot(ACCESS_TOKEN, SECRET)
 
-    with open("device_list.json", "r") as f:
-        device_list = json.load(f)
+    #with open("device_list.json", "r") as f:
+    #    device_list = json.load(f)
+
+    try:
+        device_list = bot.get_device_list()
+    except Exception as e:
+        print(f"Error fetching device list: {e}")
+        return
 
     for d in device_list:
         device_type = d.get("deviceType")

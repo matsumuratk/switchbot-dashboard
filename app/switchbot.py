@@ -73,10 +73,37 @@ class Switchbot:
             return r.json()["body"]
 
 
+def task():
+    """定期実行するタスク"""
+    bot = Switchbot()
+
+    try:
+        device_list = bot.get_device_list()
+    except Exception as e:
+        print(f"Error fetching device list: {e}")
+        return
+
+    for d in device_list:
+        device_type = d.get("deviceType")
+        device_name = d.get("deviceName")
+        if device_type == "WoIOSensor":
+            try:
+                status = bot.get_device_status(d.get("deviceId"))
+                print(f"Device: {device_name}, Status: {status}")
+            except Exception as e:
+                print(f"Error fetching status for {device_name}: {e}")
+
+
 if __name__ == "__main__":
     # デバイスリストをjsonファイルに出力する
     bot = Switchbot()
     device_list = bot.get_device_list()
 
-    with open("./device_list.json", "w") as f:
-        f.write(json.dumps(device_list, indent=2, ensure_ascii=False))
+#    with open("./device_list.json", "w") as f:
+#        f.write(json.dumps(device_list, indent=2, ensure_ascii=False))
+
+# device_listをprintする
+    print(json.dumps(device_list, indent=2, ensure_ascii=False))
+
+    # 定期実行の例
+    task()
